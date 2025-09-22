@@ -38,12 +38,8 @@ public class UserController {
     // Update an existing user -UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        try {
-            User updateUser = userService.updateUser(id, userDetails);
-            return ResponseEntity.ok(updateUser);
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+        User updateUser = userService.updateUser(id, userDetails);
+        return ResponseEntity.ok(updateUser);
     }
 
     // Delete a user -DELETE
